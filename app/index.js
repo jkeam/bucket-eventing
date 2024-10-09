@@ -19,9 +19,10 @@ const { CloudEvent } = require('cloudevents');
  * @param {CloudEvent} event the CloudEvent
  */
 const handle = async (context, event) => {
-  // YOUR CODE HERE
   context.log.info("context", context);
   context.log.info("event", event);
+  console.log(context);
+  console.log(event);
 
   return new CloudEvent({
     source: 'event.handler',
