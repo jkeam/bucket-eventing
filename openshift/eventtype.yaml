@@ -6,7 +6,7 @@ metadata:
     eventing.knative.dev/sourceName: s3-bucket
 spec:
   type: org.apache.camel.event.aws.s3.getObject
-  source: aws.s3.bucket.jkeam-redhat-test-eventing
+  source: aws.s3.bucket.example
   schema:
   description:
   reference:
