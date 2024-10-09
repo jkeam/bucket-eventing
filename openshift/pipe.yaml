@@ -1,0 +1,32 @@
+apiVersion: camel.apache.org/v1
+kind: Pipe
+metadata:
+  name: bucket-eventing-pipe
+spec:
+  integration:
+    dependencies:
+    - "camel:cloudevents"
+  source:
+    ref:
+      kind: Kamelet
+      apiVersion: camel.apache.org/v1
+      name: aws-s3-source
+      namespace: openshift-operators
+    properties:
+      bucketNameOrArn: example
+      accessKey: ACCESSKEY
+      secretKey: SECRETKEY
+      region: region
+    dataTypes:
+      out:
+        scheme: aws2-s3
+        format: application-cloudevents
+  sink:
+    dataTypes:
+      in:
+        scheme: http
+        format: application-cloudevents
+    ref:
+      kind: Broker
+      apiVersion: eventing.knative.dev/v1
+      name: bucket-eventing-broker

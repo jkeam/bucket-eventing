@@ -1,0 +1,5 @@
+.DS_Store
+secrets/secret.properties
+env/
+.env/
+ignore/
