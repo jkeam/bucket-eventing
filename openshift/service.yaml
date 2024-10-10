@@ -1,32 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: bucket-eventing
-spec:
-  selector:
-    matchLabels:
-      app: bucket-eventing
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: bucket-eventing
-    spec:
-      containers:
-      - name: bucket-eventing
-        image: quay.io/jkeam/bucket-eventing
-        ports:
-        - containerPort: 8080
----
-apiVersion: v1
+apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: bucket-eventing
-  labels:
-    app: bucket-eventing
 spec:
-  ports:
-  - port: 8080
-    protocol: TCP
-  selector:
-    app: bucket-eventing
+  template:
+    spec:
+      containers:
+      - image: quay.io/jkeam/bucket-eventing
+        ports:
+        - containerPort: 8080

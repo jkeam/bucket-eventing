@@ -1,0 +1,15 @@
+apiVersion: messaging.knative.dev/v1
+kind: Subscription
+metadata:
+  name: bucket-eventing-sub
+spec:
+  channel:
+    apiVersion: messaging.knative.dev/v1
+    kind: InMemoryChannel
+    name: bucket-eventing-broker-kne-trigger
+  delivery:
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: bucket-eventing

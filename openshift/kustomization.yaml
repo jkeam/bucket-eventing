@@ -7,6 +7,7 @@ commonLabels:
 
 resources:
 - aws-s3-source.yaml
-- http-sink.yaml
 - service.yaml
+- broker.yaml
 - pipe.yaml
+- subscription.yaml
