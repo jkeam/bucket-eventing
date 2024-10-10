@@ -6,6 +6,7 @@ commonLabels:
   app: bucket-eventing
 
 resources:
-- broker.yaml
+- aws-s3-source.yaml
+- http-sink.yaml
+- service.yaml
 - pipe.yaml
-- eventtype.yaml
