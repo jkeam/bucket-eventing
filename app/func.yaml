@@ -1,8 +1,0 @@
-specVersion: 0.36.0
-name: bucket-eventing
-runtime: node
-created: 2024-10-08T21:10:52.75316-04:00
-invoke: cloudevent
-deploy:
-  subscriptions:
-  - source: bucket-eventing-broker
